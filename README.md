@@ -1,23 +1,37 @@
-Uso
-Cloná el repositorio haciendo git clone https://github.com/sergiecode/proyecto-curso-node-yt
-Abrí el proyecto en su editor de código
-Instalá de los paquetes y módulos requeridos: npm install
-Agrega las variables de entorno que correspondan usando como plantilla .env.template
-Teniendo abierto Docker Desktop ejecuta docker compose up -d
-Levantá el servidor haciendo npm run dev
-Requiere:
-NODE: Se debe instalar NODE en el sistema operativo
-DOCKER: Para poder levantar la imágen de Mongo en el contenedor
-GIT: Debe tener Instalado GIT
-Pasos para configurar un proyecto como este:
-npm init -y
-npm install express jsonwebtoken bcrypt @prisma/client dotenv typescript
-npm install --save-dev ts-node-dev @types/express @types/jsonwebtoken @types/bcrypt @types/node rimraf prisma
-npx tsc --init --outDir dist/ --rootDir src
-Agregar carpetas excluídas e incluídas al archivo de configuración de TypeScript "exclude": ["node_modules","dist" ], "include": ["src"] 
-npx prisma init
-npx prisma generate
-Agregar los modelos en schema.prisma
-npmx prisma migrate dev
-docker-compose up -d
-Agregar los siguientes scripts: "dev": "tsnd --respawn --clear src/app.ts",   "build": "rimraf ./dist && tsc",   "start": "npm run build && node dist/app.js"
+# Configuración del Proyecto
+
+## Preparación
+
+1. Abre el proyecto en tu editor de código.
+2. Instala los paquetes y módulos requeridos ejecutando `npm install`.
+3. Agrega las variables de entorno correspondientes usando como plantilla `.env.template`.
+
+## Requisitos
+
+- **NODE**: Debes tener NODE instalado en tu sistema operativo.
+- **DOCKER**: Necesario para poder levantar la imagen de Mongo en el contenedor.
+- **GIT**: Debes tener GIT instalado.
+
+## Configuración
+
+1. Inicializa un nuevo proyecto con `npm init -y`.
+2. Instala las dependencias necesarias con `npm install express jsonwebtoken bcrypt @prisma/client dotenv typescript`.
+3. Instala las dependencias de desarrollo con `npm install --save-dev ts-node-dev @types/express @types/jsonwebtoken @types/bcrypt @types/node rimraf prisma`.
+4. Inicializa un nuevo proyecto TypeScript con `npx tsc --init --outDir dist/ --rootDir src`.
+5. Agrega las carpetas excluidas e incluidas al archivo de configuración de TypeScript `"exclude": ["node_modules","dist" ], "include": ["src"]`.
+6. Inicializa Prisma con `npx prisma init`.
+7. Genera los clientes Prisma con `npx prisma generate`.
+8. Agrega los modelos en `schema.prisma`.
+9. Ejecuta las migraciones de Prisma con `npx prisma migrate dev`.
+10. Levanta el contenedor de Docker con `docker-compose up -d`.
+
+## Scripts
+
+Agrega los siguientes scripts a tu archivo `package.json`:
+
+```json
+"scripts": {
+  "dev": "tsnd --respawn --clear src/app.ts",
+  "build": "rimraf ./dist && tsc",
+  "start": "npm run build && node dist/app.js"
+}
