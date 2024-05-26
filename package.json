@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev":"tsnd --respawn --clear src/server.ts",
     "build":"rimraf ./dist && tsc",
-    "start":"node dist/server.ts"
+    "start":"node dist/server.js"
   },
   "author": "Rimachi",
   "license": "ISC",
